@@ -1,4 +1,4 @@
-import { auth } from "@clerk/nextjs";
+// import { auth } from "@clerk/nextjs";
 import axios from "axios";
 import { NextResponse } from "next/server";
 
@@ -7,11 +7,11 @@ export async function GET(
   { params }: { params: { imageUrl: string } }
 ) {
   try {
-    const { userId } = auth();
+    // const { userId } = auth();
 
-    if (!userId) {
-      return new NextResponse("Unauthorized", { status: 401 });
-    }
+    // if (!userId) {
+    //   return new NextResponse("Unauthorized", { status: 401 });
+    // }
 
     if (!params.imageUrl) {
       return new NextResponse("Image URL is required", { status: 400 });

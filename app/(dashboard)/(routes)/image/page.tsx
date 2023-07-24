@@ -262,6 +262,15 @@ const ImagePage = () => {
                 type="submit"
                 disabled={isLoading}
                 size="icon"
+                onClick={() =>
+                  setElementsLoading([
+                    { loading: false, downloaded: false, disabled: false },
+                    { loading: false, downloaded: false, disabled: false },
+                    { loading: false, downloaded: false, disabled: false },
+                    { loading: false, downloaded: false, disabled: false },
+                    { loading: false, downloaded: false, disabled: false },
+                  ])
+                }
               >
                 Generate
               </Button>
