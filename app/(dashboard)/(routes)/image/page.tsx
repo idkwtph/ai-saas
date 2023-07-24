@@ -129,7 +129,7 @@ const ImagePage = () => {
     }
 
     setFetched(false);
-    await fetch(`/api/download/${encodeURIComponent(url)}`)
+    await fetch(`/api/imageDownload/${encodeURIComponent(url)}`)
       .then((response) => response.json())
       .then(function (response) {
         let elements = elementsLoading;
