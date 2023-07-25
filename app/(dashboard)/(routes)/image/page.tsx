@@ -129,8 +129,9 @@ const ImagePage = () => {
     }
 
     setFetched(false);
-    await fetch(`/api/imageDownload/${encodeURIComponent(url)}`)
-      .then((response) => response.json())
+    await axios
+      .get(`/api/imageDownload/${encodeURIComponent(url)}`)
+      .then((response) => response.data)
       .then(function (response) {
         let elements = elementsLoading;
         const blob = base64ToBlob(response, "image/png");
