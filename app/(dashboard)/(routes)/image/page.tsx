@@ -88,6 +88,8 @@ const ImagePage = () => {
     try {
       setImages([]);
 
+      console.log(values);
+
       const response = await axios.post("/api/image", values);
 
       const urls = response.data.map((image: { url: string }) => image.url);
@@ -128,13 +130,13 @@ const ImagePage = () => {
       throw new Error("Resource URL not provided! You need to provide one");
     }
 
-    const fixedUrl = url.slice(8);
-
-    console.log("Fixed URL: ", fixedUrl);
+    const data = {
+      imageDataUrl: url,
+    };
 
     setFetched(false);
     await axios
-      .get(`/api/imageDownload/${encodeURIComponent(fixedUrl)}`)
+      .post("/api/imageDownload", data)
       .then((response) => response.data)
       .then(function (response) {
         let elements = elementsLoading;
