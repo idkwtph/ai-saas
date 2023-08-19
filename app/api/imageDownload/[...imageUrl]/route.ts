@@ -9,7 +9,9 @@ export async function GET(
     return new NextResponse("Image URL is required", { status: 400 });
   }
 
-  const imageDataUrl = decodeURI(params.imageUrl);
+  const fixedUrl = "https://" + params.imageUrl;
+
+  const imageDataUrl = decodeURI(fixedUrl);
 
   let res = await axios
     .get(imageDataUrl, { responseType: "arraybuffer" })

@@ -128,9 +128,13 @@ const ImagePage = () => {
       throw new Error("Resource URL not provided! You need to provide one");
     }
 
+    const fixedUrl = url.slice(8);
+
+    console.log("Fixed URL: ", fixedUrl);
+
     setFetched(false);
     await axios
-      .get(`/api/imageDownload/${encodeURIComponent(url)}`)
+      .get(`/api/imageDownload/${encodeURIComponent(fixedUrl)}`)
       .then((response) => response.data)
       .then(function (response) {
         let elements = elementsLoading;
