@@ -88,8 +88,6 @@ const ImagePage = () => {
     try {
       setImages([]);
 
-      console.log(values);
-
       const response = await axios.post("/api/image", values);
 
       const urls = response.data.map((image: { url: string }) => image.url);
